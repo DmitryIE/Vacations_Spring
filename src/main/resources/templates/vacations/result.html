@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат</title>
+</head>
+<body th:bgcolor="grey">
+
+<style>
+    p {
+    }
+
+    .black20b {
+        font-size: 20px;
+        background-color: cadetblue;
+        border: 4px solid darkslategrey;
+    }
+
+    .red20 {
+        color: darkred;
+        font-size: 20px;
+    }
+
+    .black15 {
+        color: black;
+        font-size: 15px;
+    }
+</style>
+
+<p class="black20b" th:align="center">Результаты сравнения:</p>
+
+<div th:if="${results.size()==0}" th:align="center" class="red20">
+    Необходимо выбрать по крайней мере два сотрудника для сравнения
+</div>
+
+<table th:unless="${results.size()==0}" th:border="1" th:bgcolor="cadetblue" th:align="center">
+    <tr>
+        <td th:width="280" th:height="30" th:align="center">Фамилия, имя, отчество сотрудника</td>
+        <td th:width="500" th:align="center">Пересечения в отпусках</td>
+    </tr>
+    <th:block th:each="employee : ${results}">
+        <tr>
+            <td th:text="${employee.getKey()}" th:height="30" th:align="center">value</td>
+
+            <td th:height="60" th:align="center">
+                <p th:each="element : ${employee.getValue()}"
+                   th:text="${element}">value</p>
+
+            </td>
+
+        </tr>
+    </th:block>
+</table>
+
+
+</br>
+<hr/>
+<a th:href="@{/vacations/employees/chooseEmployees}" class="black15">Назад к выбору сотрудников</a>
+</br>
+<hr/>
+<a th:href="@{/vacations}" class="black15">Назад к стартовой странице</a>
+
+</body>
+</html>
