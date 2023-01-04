@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Образец</title>
+</head>
+<body th:bgcolor="grey">
+
+<style>
+  p {
+  }
+
+  .black20b {
+    font-size: 20px;
+    background-color: cadetblue;
+    border: 4px solid darkslategrey;
+  }
+
+  .black15 {
+    color: black;
+    font-size: 15px;
+  }
+
+</style>
+
+<p class="black20b" th:align="center">Образец графика отпусков:</p>
+
+<div th:align="center">
+
+<img th:src="@{/images/SampleOfTable.jpg}" width="700" height="310"/>
+
+</div>
+
+
+</br>
+<hr/>
+<a th:href="@{/vacations}" class="black15">Назад к стартовой странице</a>
+</body>
+</html>

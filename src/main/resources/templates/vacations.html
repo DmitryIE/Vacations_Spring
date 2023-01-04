@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Стартовая страница</title>
+</head>
+<body th:bgcolor="grey">
+
+<style>
+    p {
+    }
+    .black20b {
+        font-size: 20px;
+        background-color: cadetblue;
+        border: 4px solid darkslategrey;
+    }
+    .black20 {
+        font-size: 20px;
+    }
+    .black16 {
+        font-size: 16px;
+    }
+    .black15 {
+        color: black;
+        font-size: 15px;
+    }
+    .red20 {
+        color: darkred;
+        font-size: 20px;
+    }
+</style>
+
+<p th:text="${greeting}" class="black20b" th:align="center">VALUE</p>
+<p class="black20">Перед Вами веб-приложение позволяющее проанализировать отпуска сотрудников на предмет их
+    пересечения.</p>
+<p class="black20" th:text="${'Для начала работы с приложением необходимо:'}">VALUE</p>
+<p class="black16" th:text="${'1. Загрузить файл с графиком отпусков'}">VALUE</p>
+<p class="black16" th:text="${'2. Добавить/отредактировать праздничные дни'}">VALUE</p>
+<p class="black16" th:text="${'3. Выбрать сравниваемых сотрудников'}">VALUE</p>
+
+<br style="line-height:2;">
+<p class="black15" th:text="${'Все это возможно сделать по следующим ссылкам:'}">VALUE</p>
+<hr/>
+
+<a th:href="@{/vacations/load}" class="black15">Загрузка файла с графиком отпусков</a> </br>
+<a th:href="@{/vacations/all_holidays}" class="black15">Добавление/удаление праздничных дней</a> </br>
+<a th:href="@{/vacations/employees/chooseEmployees}" class="black15">Выбор сотрудников</a> </br>
+<a th:href="@{/vacations/employees/showAllVacations}" class="black15">Список всех отпусков</a> </br>
+<p th:text="${message}" th:if="${message!=null}" class="red20"></p>
+<a th:href="@{/vacations/sample}" class="black15">Образец графика отпусков</a> </br>
+
+</body>
+</html>

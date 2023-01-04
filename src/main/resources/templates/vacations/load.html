@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Загрузка данных</title>
+</head>
+<body th:bgcolor="grey">
+
+<style>
+    p {
+    }
+
+    .black20b {
+        font-size: 20px;
+        background-color: cadetblue;
+        border: 4px solid darkslategrey;
+    }
+
+    .red20 {
+        color: darkred;
+        font-size: 20px;
+    }
+
+    .black15 {
+        color: black;
+        font-size: 15px;
+    }
+
+    .button {
+        border: 2px solid black;
+        font-size: 14px;
+        padding: 5px 20px;
+    }
+
+    .button2 {
+        font-size: 14px;
+        border: 2px solid black;
+        padding: 5px 15px;
+    }
+</style>
+
+
+<p class="black20b" th:align="center">Загрузка данных</p>
+
+<p th:text="${message}" th:if="${message!=null}" class="red20"></p>
+
+<form method="post" th:action="@{/vacations/load}" enctype="multipart/form-data">
+    <div>
+        <input type="file" class="button2" name="file" value="Выберите файл"/>
+    </div>
+    <br/>
+    <hr/>
+    <button type="submit" class="button">Загрузить файл</button>
+</form>
+<br/>
+
+<hr/>
+<a th:href="@{/vacations}" class="black15">Назад к стартовой странице</a>
+
+</body>
+</html>
